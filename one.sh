@@ -1,5 +1,5 @@
 #!/bin/bash
-git clone https://github.com/hellotsdn/genconf.git
+git clone https://github.com/trustnote/onekeybuild.git
 cd genconf
 ./1.install.tools.sh
 ./2.install.tsdn.sh
