@@ -1,6 +1,6 @@
 #!/bin/bash
 git clone https://github.com/trustnote/onekeybuild.git
-cd genconf
+cd onekeybuild
 ./1.install.tools.sh
 ./2.install.tsdn.sh
 ./3.install.genesis_scripts.sh
