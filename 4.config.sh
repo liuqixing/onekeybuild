@@ -18,6 +18,6 @@ do
   text=${var/FIRSTAMOUNT/$arrOutputs}
   text=${text/FROMADDRESS/$from_address}
   text=${text/PAYEEADDRESS/$payee_address}
-  echo -e "$text\n" >> ./trustnote-headless/play/create_genesis.js
+  echo -e "$text" >> ./trustnote-headless/play/create_genesis.js
 done < $input
 echo "config finish"

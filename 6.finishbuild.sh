@@ -8,7 +8,7 @@ echo ""  > ./config-files/constants.js
 while IFS= read -r var
 do
   text=${var/REPLACE_GENESIS_UNIT/$genesisHash}
-  echo -e "$text\n" >> ./config-files/constants.js
+  echo -e "$text" >> ./config-files/constants.js
 done < $input
 
 
@@ -17,7 +17,7 @@ echo ""  > ./config-files/constants.js
 while IFS= read -r var
 do
   text=${var/REPLACE_WITNESSES/$witnessAddress}
-  echo -e "$text\n" >> ./config-files/hub-conf.js
+  echo -e "$text" >> ./config-files/hub-conf.js
 done < $input
 
 
@@ -26,7 +26,7 @@ echo ""  > ./config-files/explorer-conf.js
 while IFS= read -r var
 do
   text=${var/REPLACE_WITNESSES/$witnessAddress}
-  echo -e "$text\n" >> ./config-files/explorer-conf.js
+  echo -e "$text" >> ./config-files/explorer-conf.js
 done < $input
 
 
@@ -36,7 +36,7 @@ echo ""  > ./trustnote-hub/node_modules/trustnote-relay/conf.js
 while IFS= read -r var
 do
   text=${var/REPLACE_WITNESSES/$witnessAddress}
-  echo -e "$text\n" >> ./trustnote-hub/node_modules/trustnote-relay/conf.js
+  echo -e "$text" >> ./trustnote-hub/node_modules/trustnote-relay/conf.js
 done < $input
 
 
