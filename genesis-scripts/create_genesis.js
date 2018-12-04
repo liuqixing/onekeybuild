@@ -75,7 +75,7 @@ function  rungen(){
         console.log("");
         console.log("genesisHash:");
         console.log(genesisHash);
-        fs.writeFileSync('../../genesisHash.txt',genesisHash);
+        fs.writeFileSync('../../genesisHash.txt','"'+genesisHash+'"');
         process.exit()
   });
 })
