@@ -7,5 +7,6 @@ cd onekeybuild
 # ./4.config.sh
 ruby 4.config.rb
 ./5.gen.sh
-./6.finishbuild.sh
+# ./6.finishbuild.sh
+ruby 6.config.rb
 ./7.firstrun.sh

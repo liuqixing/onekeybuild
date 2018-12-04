@@ -4,46 +4,28 @@ genesisHash = File.read("./genesisHash.txt")
 witnessAddress = File.read("./data/witnessAddress.json")
 
 
+constants = File.read("./config-files/constants.conf.js")
+File.open("./config-files/constants.js","w+") do |file|
+    constants["REPLACE_GENESIS_UNIT"] = genesisHash
+    file.puts constants[""]
+end
 
-File.open(gen_file,"w+") do |file|
-    file.puts gen_text
+hub = File.read("./config-files/hub.conf.js")
+File.open("./config-files/hub-conf.js","w+") do |file|
+    hub["REPLACE_WITNESSES"] = witnessAddress
+    file.puts constants[""]
 end
 
 
+explorer = File.read("./config-files/explorer.conf.js")
+File.open("./config-files/explorer-conf.js","w+") do |file|
+    explorer["REPLACE_WITNESSES"] = witnessAddress
+    file.puts constants[""]
+end
 
 
-input="./config-files/constants.conf.js"
-echo ""  > ./config-files/constants.js
-while IFS= read -r var
-do
-  text=${var/REPLACE_GENESIS_UNIT/$genesisHash}
-  echo -e "$text" >> ./config-files/constants.js
-done < $input
-
-
-input="./config-files/hub.conf.js"
-echo ""  > ./config-files/constants.js
-while IFS= read -r var
-do
-  text=${var/REPLACE_WITNESSES/$witnessAddress}
-  echo -e "$text" >> ./config-files/hub-conf.js
-done < $input
-
-
-input="./config-files/explorer.conf.js"
-echo ""  > ./config-files/explorer-conf.js
-while IFS= read -r var
-do
-  text=${var/REPLACE_WITNESSES/$witnessAddress}
-  echo -e "$text" >> ./config-files/explorer-conf.js
-done < $input
-
-
-
-input="./config-files/relay.conf.js"
-echo ""  > ./trustnote-hub/node_modules/trustnote-relay/conf.js
-while IFS= read -r var
-do
-  text=${var/REPLACE_WITNESSES/$witnessAddress}
-  echo -e "$text" >> ./trustnote-hub/node_modules/trustnote-relay/conf.js
-done < $input
+relay = File.read("./config-files/relay.conf.js")
+File.open("./trustnote-hub/node_modules/trustnote-relay/conf.js","w+") do |file|
+    explorer["REPLACE_WITNESSES"] = witnessAddress
+    file.puts constants[""]
+end
