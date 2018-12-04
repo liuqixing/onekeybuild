@@ -2,24 +2,42 @@
 genesisHash=$(cat ./genesisHash.txt)
 witnessAddress=$(cat ./data/witnessAddress.json)
 
-text=$(cat ./config-files/constants.js)
-text=${text/REPLACE_GENESIS_UNIT/$genesisHash}
-echo $text > ./config-files/constants.js
 
-text=$(cat ./config-files/hub-conf.js)
-text=${text/REPLACE_WITNESSES/$witnessAddress}
-echo $text > ./config-files/hub-conf.js
-
-text=$(cat ./config-files/explorer-conf.js)
-text=${text/REPLACE_WITNESSES/$witnessAddress}
-echo $text > ./config-files/explorer-conf.js
+input="./config-files/constants.js"
+echo ""  > ./config-files/constants.js
+while IFS= read -r var
+do
+  text=${var/REPLACE_GENESIS_UNIT/$genesisHash}
+  echo $text >> ./config-files/constants.js
+done < $input
 
 
-rm ./trustnote-hub/node_modules/trustnote-relay/conf.js
+input="./config-files/hub-conf.js"
+echo ""  > ./config-files/constants.js
+while IFS= read -r var
+do
+  text=${var/REPLACE_WITNESSES/$witnessAddress}
+  echo $text >> ./config-files/hub-conf.js
+done < $input
 
-text=$(cat ./config-files/relay.conf.js)
-text=${text/REPLACE_WITNESSES/$witnessAddress}
-echo $text > ./trustnote-hub/node_modules/trustnote-relay/conf.js
+
+input="./config-files/explorer-conf.js"
+echo ""  > ./config-files/explorer-conf.js
+while IFS= read -r var
+do
+  text=${var/REPLACE_WITNESSES/$witnessAddress}
+  echo $text >> ./config-files/explorer-conf.js
+done < $input
+
+
+
+input="./config-files/relay.conf.js"
+echo ""  > ./trustnote-hub/node_modules/trustnote-relay/conf.js
+while IFS= read -r var
+do
+  text=${var/REPLACE_WITNESSES/$witnessAddress}
+  echo $text >> ./trustnote-hub/node_modules/trustnote-relay/conf.js
+done < $input
 
 
 cp -r ./data/witness* ~/.config/
