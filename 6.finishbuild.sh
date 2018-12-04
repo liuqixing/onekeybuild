@@ -25,3 +25,4 @@ cp -r ./config-files/constants.js ./trustnote-witness/node_modules/trustnote-com
 cp -r ./config-files/constants.js ./trustnote-headless/node_modules/trustnote-common/constants.js
 cp -r ./config-files/constants.js ./trustnote-hub/node_modules/trustnote-common/constants.js
 cp -r ./config-files/constants.js ./trustnote-explorer/node_modules/trustnote-common/constants.js
+cp -r ./trustnote-hub/conf.js ./trustnote-hub/node_modules/trustnote-relay/conf.js
