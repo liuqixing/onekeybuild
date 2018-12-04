@@ -85,55 +85,55 @@ function onError(err) {
     throw Error(err);
 }
 
-// function getConfEntryByAddress(address) {
-//     for (let item of genesisConfigData) {
-//         if(item["address"] === address){
-//             return item;
-//         }
-//     }
-//     console.log(" \n >> Error: witness address "
-//     + address +" not founded in the \"bgensis.json\" file!!!!\n");
-//     process.exit(0);
-//     //return null;
-// }
+function getConfEntryByAddress(address) {
+    for (let item of genesisConfigData) {
+        if(item["address"] === address){
+            return item;
+        }
+    }
+    console.log(" \n >> Error: witness address "
+    + address +" not founded in the \"bgensis.json\" file!!!!\n");
+    process.exit(0);
+    //return null;
+}
 
-// function getDerivedKey(mnemonic_phrase, passphrase, account, is_change, address_index) {
-//     console.log("**************************************************************");
-//     console.log(mnemonic_phrase);
+function getDerivedKey(mnemonic_phrase, passphrase, account, is_change, address_index) {
+    console.log("**************************************************************");
+    console.log(mnemonic_phrase);
 
-//     var mnemonic = new Mnemonic(mnemonic_phrase);
-//     var xPrivKey = mnemonic.toHDPrivateKey(passphrase);
-//     //console.log(">> about to  signature with private key: " + xPrivKey);
-//     var path = "m/44'/0'/" + account + "'/"+is_change+"/"+address_index;
-//     var derivedPrivateKey = xPrivKey.derive(path).privateKey;
-//     console.log(">> derived key: " + derivedPrivateKey);
-//     return derivedPrivateKey.bn.toBuffer({size:32});        // return as buffer
-// }
+    var mnemonic = new Mnemonic(mnemonic_phrase);
+    var xPrivKey = mnemonic.toHDPrivateKey(passphrase);
+    //console.log(">> about to  signature with private key: " + xPrivKey);
+    var path = "m/44'/0'/" + account + "'/"+is_change+"/"+address_index;
+    var derivedPrivateKey = xPrivKey.derive(path).privateKey;
+    console.log(">> derived key: " + derivedPrivateKey);
+    return derivedPrivateKey.bn.toBuffer({size:32});        // return as buffer
+}
 
-// // signer that uses witeness address
-// var signer = {
-//     readSigningPaths: function(conn, address, handleLengthsBySigningPaths){
-//         handleLengthsBySigningPaths({r: constants.SIG_LENGTH});
-//     },
-//     readDefinition: function(conn, address, handleDefinition){
-//         var conf_entry = getConfEntryByAddress(address);
-//        // console.log(" \n\n conf_entry is ---> \n" + JSON.stringify(conf_entry,null,2));
-//         var definition = conf_entry["definition"];
-//         handleDefinition(null, definition);
-//     },
-//     sign: function(objUnsignedUnit, assocPrivatePayloads, address, signing_path, handleSignature){
-//         var buf_to_sign = objectHash.getUnitHashToSign(objUnsignedUnit);
-//         var item = getConfEntryByAddress(address);
-//         var derivedPrivateKey = getDerivedKey(
-//             item["mnemonic_phrase"],
-//             item["passphrase"],
-//             0,
-//             item["is_change"],
-//             item["address_index"]
-//           );
-//         handleSignature(null, ecdsaSig.sign(buf_to_sign, derivedPrivateKey));
-//     }
-// };
+// signer that uses witeness address
+var signer = {
+    readSigningPaths: function(conn, address, handleLengthsBySigningPaths){
+        handleLengthsBySigningPaths({r: constants.SIG_LENGTH});
+    },
+    readDefinition: function(conn, address, handleDefinition){
+        var conf_entry = getConfEntryByAddress(address);
+       // console.log(" \n\n conf_entry is ---> \n" + JSON.stringify(conf_entry,null,2));
+        var definition = conf_entry["definition"];
+        handleDefinition(null, definition);
+    },
+    sign: function(objUnsignedUnit, assocPrivatePayloads, address, signing_path, handleSignature){
+        var buf_to_sign = objectHash.getUnitHashToSign(objUnsignedUnit);
+        var item = getConfEntryByAddress(address);
+        var derivedPrivateKey = getDerivedKey(
+            item["mnemonic_phrase"],
+            item["passphrase"],
+            0,
+            item["is_change"],
+            item["address_index"]
+          );
+        handleSignature(null, ecdsaSig.sign(buf_to_sign, derivedPrivateKey));
+    }
+};
 
 function createGenesisUnit(witnesses, onDone) {
     var composer = require('trustnote-common/composer.js');
