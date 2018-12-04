@@ -3,7 +3,7 @@ genesisHash=$(cat ./genesisHash.txt)
 witnessAddress=$(cat ./data/witnessAddress.json)
 
 
-input="./config-files/constants.js"
+input="./config-files/constants.conf.js"
 echo ""  > ./config-files/constants.js
 while IFS= read -r var
 do
@@ -12,7 +12,7 @@ do
 done < $input
 
 
-input="./config-files/hub-conf.js"
+input="./config-files/hub.conf.js"
 echo ""  > ./config-files/constants.js
 while IFS= read -r var
 do
@@ -21,7 +21,7 @@ do
 done < $input
 
 
-input="./config-files/explorer-conf.js"
+input="./config-files/explorer.conf.js"
 echo ""  > ./config-files/explorer-conf.js
 while IFS= read -r var
 do
