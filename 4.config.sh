@@ -26,4 +26,3 @@ do
   echo $text>>./trustnote-headless/play/create_genesis.js
 done < "$input"
 echo "config finish"
-echo "gen"
