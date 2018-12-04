@@ -1,4 +1,13 @@
 #!/bin/bash
+
+rm -rf ~/.config/trustnote*
+rm -rf ~/.config/witness*
+rm -rf ~/.config/headless*
+rm -rf ./witness*
+rm -rf ./headless*
+
+
+
 rm -rf ~/.config/headless15/trustnote*
 rm ./trustnote-headless/start.js
 cp ./genesis-scripts/headless.start.js ./trustnote-headless/start.js
