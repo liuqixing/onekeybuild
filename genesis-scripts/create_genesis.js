@@ -30,8 +30,6 @@ var contentb = fs.readFileSync('../../data/witnessAddress.json');
 witnesses = JSON.parse(contentb);
 allAddress = JSON.parse(contenta);
 
-console.log(JSON.stringify(witnesses));
-
 for (let address of allAddress) {// initial the payment arrOutputs
     for(var i=0; i<witness_budget_count; ++i) {
         arrOutputs.push({address: address, amount: witness_budget});
@@ -39,7 +37,6 @@ for (let address of allAddress) {// initial the payment arrOutputs
 }
 
 function createPayment(){
-    console.log('starting createPayment');
     var composer = require('trustnote-common/composer.js');
     var network = require('trustnote-common/network.js');
     var callbacks = composer.getSavingCallbacks({
@@ -65,16 +62,11 @@ function createPayment(){
 function  rungen(){
   fs.readFile(genesisConfigFile, 'utf8', function(err, data) {
       if (err){
-        console.log("Read genesis input file \"bgenesis.json\" failed: " + err);
         process.exit(0);
       }
       // set global data
       genesisConfigData = JSON.parse(data);
-      console.log("Read genesis input data\n: %s", JSON.stringify(genesisConfigData,null,2) );
       createGenesisUnit(witnesses, function(genesisHash) {
-        console.log("");
-        console.log("genesisHash:");
-        console.log(genesisHash);
         fs.writeFileSync('../../genesisHash.txt','"'+genesisHash+'"');
         process.exit()
   });
@@ -91,22 +83,17 @@ function getConfEntryByAddress(address) {
             return item;
         }
     }
-    console.log(" \n >> Error: witness address "
-    + address +" not founded in the \"bgensis.json\" file!!!!\n");
     process.exit(0);
     //return null;
 }
 
 function getDerivedKey(mnemonic_phrase, passphrase, account, is_change, address_index) {
-    console.log("**************************************************************");
-    console.log(mnemonic_phrase);
+
 
     var mnemonic = new Mnemonic(mnemonic_phrase);
     var xPrivKey = mnemonic.toHDPrivateKey(passphrase);
-    //console.log(">> about to  signature with private key: " + xPrivKey);
     var path = "m/44'/0'/" + account + "'/"+is_change+"/"+address_index;
     var derivedPrivateKey = xPrivKey.derive(path).privateKey;
-    console.log(">> derived key: " + derivedPrivateKey);
     return derivedPrivateKey.bn.toBuffer({size:32});        // return as buffer
 }
 
@@ -117,7 +104,6 @@ var signer = {
     },
     readDefinition: function(conn, address, handleDefinition){
         var conf_entry = getConfEntryByAddress(address);
-       // console.log(" \n\n conf_entry is ---> \n" + JSON.stringify(conf_entry,null,2));
         var definition = conf_entry["definition"];
         handleDefinition(null, definition);
     },
@@ -174,7 +160,6 @@ function createGenesisUnit(witnesses, onDone) {
 }
 
 eventBus.once('headless_wallet_ready', function() {
-    console.log("headless wallet ready !");
     if (act == "gen"){
         rungen();
     }else{

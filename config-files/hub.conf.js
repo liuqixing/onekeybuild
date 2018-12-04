@@ -17,4 +17,3 @@ exports.HEARTBEAT_TIMEOUT = 300*1000;
 exports.storage = 'sqlite';
 exports.initial_witnesses = REPLACE_WITNESSES;
 exports.initial_peers = [];
-console.log('finished hub conf');

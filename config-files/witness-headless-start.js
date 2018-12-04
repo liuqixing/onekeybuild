@@ -20,21 +20,11 @@ var wallet_id;
 var xPrivKey;
 
 function replaceConsoleLog(){
-	// var log_filename = conf.LOG_FILENAME || (appDataDir + '/log.txt');
-	// var writeStream = fs.createWriteStream(log_filename);
-	// console.log('---------------');
-	// console.log('From this point, output will be redirected to '+log_filename);
-	// console.log("To release the terminal, type Ctrl-Z, then 'bg'");
-	// console.log = function(){
-	// 	writeStream.write(Date().toString()+': ');
-	// 	writeStream.write(util.format.apply(null, arguments) + '\n');
-	// };
-	// console.warn = console.log;
-	// console.info = console.log;
+
 }
 
 function readKeys(onDone){
-	console.log('-----------------------');
+
 	if (conf.control_addresses)
 		console.log("remote access allowed from devices: "+conf.control_addresses.join(', '));
 	if (conf.payout_address)

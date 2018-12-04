@@ -8,4 +8,3 @@ exports.initial_witnesses = REPLACE_WITNESSES;
 exports.initial_peers = [
 	'ws://127.0.0.1:6616'
 ];
-console.log('finished explorer conf');
