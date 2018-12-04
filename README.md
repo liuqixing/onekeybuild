@@ -1,7 +1,9 @@
-# one key build
+# one key build TrustNote
+
+一键安装部署启动TrustNote测试链
 
 ```
 curl -fsSL https://raw.githubusercontent.com/trustnote/onekeybuild/master/one.sh | bash
 ```
 
-TrustNote 从零开始起链，只要2分钟。过程中只需要手动输入两次空格，其余全是全自动。
+TrustNote 从零开始起链，只要2分钟，一条命令，自动安装自动创世自动启链。
