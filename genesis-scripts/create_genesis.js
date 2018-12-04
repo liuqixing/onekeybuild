@@ -3,11 +3,11 @@
 const fs = require('fs');
 const db = require('trustnote-common/db.js');
 const eventBus = require('trustnote-common/event_bus.js');
-const constants = require('trustnote-common/constants.js');
-var objectHash = require('trustnote-common/object_hash.js');
-var Mnemonic = require('bitcore-mnemonic');
-var ecdsaSig = require('trustnote-common/signature.js');
-var validation = require('trustnote-common/validation.js');
+// const constants = require('trustnote-common/constants.js');
+// var objectHash = require('trustnote-common/object_hash.js');
+// var Mnemonic = require('bitcore-mnemonic');
+// var ecdsaSig = require('trustnote-common/signature.js');
+// var validation = require('trustnote-common/validation.js');
 var headlessWallet = require('./start');
 
 var act = process.argv[2];
