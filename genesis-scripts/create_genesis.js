@@ -8,8 +8,7 @@ var objectHash = require('trustnote-common/object_hash.js');
 var Mnemonic = require('bitcore-mnemonic');
 var ecdsaSig = require('trustnote-common/signature.js');
 var validation = require('trustnote-common/validation.js');
-var headlessWallet = require('trustnote-headless');
-var headlessWallet = require('../start.js');
+var headlessWallet = require('./start');
 
 var act = process.argv[2];
 
