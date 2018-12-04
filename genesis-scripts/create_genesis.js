@@ -81,9 +81,9 @@ function  rungen(){
 })
 }
 
-// function onError(err) {
-//     throw Error(err);
-// }
+function onError(err) {
+    throw Error(err);
+}
 
 // function getConfEntryByAddress(address) {
 //     for (let item of genesisConfigData) {
