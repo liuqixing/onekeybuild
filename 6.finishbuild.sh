@@ -3,7 +3,7 @@ genesisHash=$(cat ./genesisHash.txt)
 witnessAddress=$(cat ./data/witnessAddress.json)
 
 text=$(cat ./config-files/constants.js)
-text=${text/REPLACE_GENESIS_UNIT/$genesisHash}
+text=${text/REPLACE_GENESIS_UNIT/"$genesisHash"}
 echo $text > ./config-files/constants.js
 
 text=$(cat ./config-files/hub-conf.js)
