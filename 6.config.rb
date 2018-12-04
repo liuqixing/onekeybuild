@@ -1,6 +1,15 @@
-#!/bin/bash
-genesisHash=$(cat ./genesisHash.txt)
-witnessAddress=$(cat ./data/witnessAddress.json)
+#!/usr/bin/ruby
+require "json"
+genesisHash = File.read("./genesisHash.txt")
+witnessAddress = File.read("./data/witnessAddress.json")
+
+
+
+File.open(gen_file,"w+") do |file|
+    file.puts gen_text
+end
+
+
 
 
 input="./config-files/constants.conf.js"
@@ -38,7 +47,3 @@ do
   text=${var/REPLACE_WITNESSES/$witnessAddress}
   echo -e "$text" >> ./trustnote-hub/node_modules/trustnote-relay/conf.js
 done < $input
-
-
-
-

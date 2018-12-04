@@ -67,7 +67,7 @@ function  rungen(){
       // set global data
       genesisConfigData = JSON.parse(data);
       createGenesisUnit(witnesses, function(genesisHash) {
-        fs.writeFileSync('../../genesisHash.txt','"'+genesisHash+'"');
+        fs.writeFileSync('../../genesisHash.txt',genesisHash);
         process.exit()
   });
 })
