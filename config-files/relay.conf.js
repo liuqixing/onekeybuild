@@ -9,13 +9,6 @@ exports.storage = 'sqlite';
 
 exports.initial_witnesses = REPLACE_WITNESSES;
 
-// exports.initial_peers = [
-//     'wss://victor.trustnote.org/tn',
-//     'wss://eason.trustnote.org/tn',
-//     'wss://lymn.trustnote.org/tn',
-//     'wss://bob.trustnote.org/tn',
-//     'wss://curry.trustnote.org/tn',
-//     'wss://kake.trustnote.org/tn'
-// ];
+exports.initial_peers = [];
 
 console.log('finished relay conf');
