@@ -4,8 +4,8 @@ nvm install 8.9.4
 sudo npm install pm2 -g
 sudo npm install node-gyp -g
 
-git clone https://git.coding.net/cr4fun/trustnote-builder.git
-cd trustnote-builder
+git clone https://github.com/trustnote/onekeybuild.git
+cd onekeybuild
 ./0.install.sh
 ./1.create_conf.sh
 ./2.create_gen.sh
