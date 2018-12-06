@@ -21,14 +21,14 @@ cp -r ./config-files/constants.js ./trustnote-explorer/node_modules/trustnote-co
 for i in {1..12}
 do
     echo  deploy witness$i
-    cp -r  trustnote-witness/ ./witness$i
+    cp -r  ./trustnote-witness/ ./witness$i
     sed -i "s/trustnote-witness/witness$i/g" ./witness$i/package.json
 done
 
 for i in {13..15}
 do
     echo  deploy headless$i
-    cp -r  trustnote-headless/ ./headless$i
+    cp -r  ./trustnote-headless/ ./headless$i
     #sed -i "s/trustnote-headless/witness$i/g" ./witness$i/package.json
 done
 
