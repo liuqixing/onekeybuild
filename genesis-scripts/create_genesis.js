@@ -78,7 +78,7 @@ function rungen() {
             //
             setTimeout(function(){
                 process.exit(0);
-            }, 1000 * 30);
+            }, 1000 * 90);
             // var placeholders = Array.apply(null, Array(witnesses.length)).map(function(){ return '(?)'; }).join(',');
             // console.log('will insert witnesses', witnesses);
             // var witnesslist = witnesses;
