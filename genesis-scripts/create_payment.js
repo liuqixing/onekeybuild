@@ -171,7 +171,7 @@ function createGenesisUnit(witnesses, onDone) {
     composer.composeJoint(genesisUnitInput);
     setTimeout(function(){
         process.exit(0);
-    }, 1000 * 90);
+    }, 1000 * 300);
     
 }
 
