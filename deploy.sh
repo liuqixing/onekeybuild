@@ -25,4 +25,11 @@ do
     sed -i "s/trustnote-witness/witness$i/g" ./witness$i/package.json
 done
 
+for i in {13..15}
+do
+    echo  deploy headless$i
+    cp -r  trustnote-headless/ ./headless$i
+    #sed -i "s/trustnote-headless/witness$i/g" ./witness$i/package.json
+done
+
 echo deploy finshed! run ./start.sh!

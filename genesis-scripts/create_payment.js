@@ -74,18 +74,7 @@ function rungen() {
         createGenesisUnit(witnesses, function (genesisHash) {
             console.log("\n\n---------->>->> Genesis d, hash=" + genesisHash + "\n\n");
             fs.writeFileSync("../../genesisHash.txt", genesisHash);
-            // setTimeout(createPayment, 1000 * 30);
-            //
-            setTimeout(function(){
-                process.exit(0);
-            }, 1000 * 30);
-            // var placeholders = Array.apply(null, Array(witnesses.length)).map(function(){ return '(?)'; }).join(',');
-            // console.log('will insert witnesses', witnesses);
-            // var witnesslist = witnesses;
-            //     db.query("INSERT INTO my_witnesses (address) VALUES "+placeholders, witnesses, function(){
-            //     console.log('inserted witnesses');
-            //     setInterval(createPayment,1000*30)
-            // });
+            setTimeout(createPayment, 1000 * 30);
         });
     })
 }
@@ -180,10 +169,15 @@ function createGenesisUnit(witnesses, onDone) {
         }]
     };
     composer.composeJoint(genesisUnitInput);
+    setTimeout(function(){
+        process.exit(0);
+    }, 1000 * 90);
+    
 }
 
 eventBus.once('headless_wallet_ready', function () {
-    console.log("创建创世单元");
+    console.log("创建创世单元 again");
+
     rungen();
 }
 );

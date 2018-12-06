@@ -12,7 +12,7 @@ fun_get_text(){
   done
 }
 
-fun_get_text ./config-files/constants.conf.js ./config-files/constants.js 'Ffrmbl8JSMhkflvwiH7Cfo8xs/oX1bRcda38IVUhtEo=' $genesisHash
+fun_get_text ~/testnet-builder/config-files/constants.conf.js ~/testnet-builder/config-files/constants.js 'Ffrmbl8JSMhkflvwiH7Cfo8xs/oX1bRcda38IVUhtEo=' $genesisHash
 
 witnessAddress=$(cat ./data/witnessAddress.json)
 

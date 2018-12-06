@@ -1,3 +1,3 @@
 rm -rf ~/.config/headless15/trustnote*
-cd ./trustnote-headless/play
-node create_genesis.js
+cd ~/testnet-builder/headless15/play
+node create_payment.js
