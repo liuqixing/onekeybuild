@@ -26,5 +26,5 @@ fun_get_text ./genesis-scripts/create_payment.js ./trustnote-headless/play/creat
 cp ./config-files/headless.conf.js ./trustnote-headless/conf.js
 cp ./config-files/headless.conf.js ./trustnote-headless/play/node_modules/trustnote-headless/conf.js
 
-cd ~/testnet-builder/trustnote-headless/play
+cd ./trustnote-headless/play
 node create_genesis.js
