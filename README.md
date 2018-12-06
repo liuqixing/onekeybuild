@@ -1,6 +1,17 @@
 ### build so easy
 
 ```
-curl -fsSL https://raw.githubusercontent.com/trustnote/onekeybuild/master/one.sh | bash
+git clone https://github.com/trustnote/onekeybuild.git
 ```
 
+```
+mv onekeybuild testnet-builder
+```
+
+```
+cd testnet-builder
+```
+
+```
+./install.sh
+```

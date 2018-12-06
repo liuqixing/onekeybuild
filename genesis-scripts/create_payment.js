@@ -169,10 +169,6 @@ function createGenesisUnit(witnesses, onDone) {
         }]
     };
     composer.composeJoint(genesisUnitInput);
-    setTimeout(function(){
-        process.exit(0);
-    }, 1000 * 300);
-    
 }
 
 eventBus.once('headless_wallet_ready', function () {
