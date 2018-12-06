@@ -8,5 +8,6 @@ do
 done
 
 pm2 start  ./trustnote-explorer/explorer.js --name explorer
+pm2 start  ./trustnote-headless/start.js --name headless
 
 echo deploy finshed

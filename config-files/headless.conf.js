@@ -1,0 +1,14 @@
+"use strict";
+exports.bServeAsHub = false;
+exports.bLight = false;
+exports.storage = 'sqlite';
+exports.WS_PROTOCOL = 'ws://';
+exports.hub = '127.0.0.1:6616';
+exports.deviceName = 'Headless';
+exports.permanent_pairing_secret = 'randomstring';
+exports.control_addresses = ['DEVICE ALLOWED TO CHAT'];
+exports.payout_address = 'WHERE THE MONEY CAN BE SENT TO';
+exports.KEYS_FILENAME = 'keys.json';
+exports.rpcInterface = '127.0.0.1';
+exports.rpcPort = '6552';
+console.log('finished headless conf');

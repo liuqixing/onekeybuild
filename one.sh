@@ -1,12 +1,16 @@
-#!/bin/bash
-git clone https://github.com/trustnote/onekeybuild.git
-cd onekeybuild
-./1.install.tools.sh
-./2.install.tsdn.sh
-./3.install.genesis_scripts.sh
-# ./4.config.sh
-ruby 4.config.rb
-./5.gen.sh
-# ./6.finishbuild.sh
-ruby 6.config.rb
-./7.firstrun.sh
+sudo apt-get install build-essential git jq tree ruby
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+nvm install 8.9.4
+sudo npm install pm2 -g
+sudo npm install node-gyp -g
+
+git clone https://git.coding.net/cr4fun/trustnote-builder.git
+cd trustnote-builder
+./0.install.sh
+./1.create_conf.sh
+./2.create_gen.sh
+sleep 5
+./3.StartHubandWitnesses.sh
+./4.finish.sh
+sleep 5
+./5.payment.sh

@@ -21,7 +21,14 @@ if (!conf.bSingleAddress)
 headlessWallet.setupChatEventHandlers();
 
 function notifyAdmin(subject, body){
-
+	/* 20180227 by horsen
+	mail.sendmail({
+		to: conf.admin_email,
+		from: conf.from_email,
+		subject: subject,
+		body: body
+	});
+	*/
 }
 
 function notifyAdminAboutFailedWitnessing(err){

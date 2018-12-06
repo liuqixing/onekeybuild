@@ -1,3 +1,19 @@
+/**
+例子：
+      "passphrase": "",
+      "mnemonic_phrase": "industry expect outer unique utility scan umbrella solid round battle enemy danger",
+      "temp_priv_key": "N7JUkRsOaxlUQ+/8IhT+r2e1HHrXI6TrxsaiNBsiCEo=",
+      "prev_temp_priv_key": "7spdl99kigmnni1WyTjCMjKQ7ziooaDRFxpO84+LstY=",
+
+      "address": "JDKPTX4UEZ4A6LRYBVYBX3BYIYADDAQS",
+      "wallet": "yM2SBBJXEgja7lMMSVuCAqioiGYJ3+GYVO0ZOSOe2CM=",
+      "is_change": 0,
+      "address_index": 0,
+      "definition": ["sig",{"pubkey":"AwnOX+2ycbnzUVPHeMTBQlnqWuMTa9jqNBDLbtT2wOLe"}],
+      "creation_date": "2017-10-25 02:17:31"
+
+**/
+
 var fs = require('fs');
 var crypto = require('crypto');
 var Mnemonic = require('bitcore-mnemonic');
@@ -35,8 +51,17 @@ function createWallet(){
     obj['is_change'] = 0;
     obj['address_index'] = 0;
     obj['definition'] = arrDefinition;
+
     configArray.push(obj);
+    //console.log(JSON.stringify(obj));
 }
+
+//console.log(JSON.stringify(configArray));
+
+//创建文件
+// config.json
+// 12个witness的配置文件
+// 某个headless的的配置文件
 
 function writedown(){
 	// config data
