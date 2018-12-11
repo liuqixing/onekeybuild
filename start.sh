@@ -13,5 +13,6 @@ done
 # done
 
 pm2 start  ./trustnote-explorer/explorer.js --name explorer
+pm2 start  ./fusion-server/index.js --name apiServer
 
 echo deploy finshed
