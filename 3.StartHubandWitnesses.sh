@@ -19,6 +19,9 @@ witnessAddress=$(cat ./data/witnessAddress.json)
 fun_get_text ./config-files/hub.conf.js ./config-files/hub-conf.js replace_your_witnessAddress $witnessAddress
 fun_get_text ./config-files/explorer.conf.js ./config-files/explorer-conf.js replace_your_witnessAddress $witnessAddress
 
+cp ./config-files/constants.js ./fusion-server/node_modules/trustnote-common/constants.js
+cp ./trustnote-hub/node_modules/trustnote-relay/conf.js ./fusion-server/node_modules/trustnote-relay/conf.js
+
 fun_get_text ./config-files/relay.conf.js ./trustnote-hub/node_modules/trustnote-relay/conf.js replace_your_witnessAddress $witnessAddress
 chmod +x deploy.sh
 ./deploy.sh
