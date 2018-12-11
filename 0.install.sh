@@ -28,4 +28,10 @@ done
 cd genesis-scripts
 npm install
 cd ../
+
+git clone https://github.com/trustnote/fusion-server.git
+cd fusion-server
+npm install
+cd ../
+
 mkdir data
