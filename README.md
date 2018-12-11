@@ -28,5 +28,9 @@ curl -fsSL https://raw.githubusercontent.com/trustnote/onekeybuild/master/one.sh
 
 ### visit explorer
 
+
+![](loop.png)
+
 The installation process takes approximately 2 to 5 minutes depending on your network and computer performance. You can access the 3000 port of your ip address. Once the test chain is built, http://localhost:3000 will appear in the TrustNote browser.
 
+![](explorer.png)
